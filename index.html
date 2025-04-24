@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    
+
+    <div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'calc')">Calculator</button>
+        <button class="tablinks" onclick="openCity(event, 'agecalc')">Age Calculator</button>
+        <button class="tablinks" onclick="openCity(event, 'conversion')"> Metric Conversions</button>
+        <button class="tablinks" onclick="openCity(event, 'temp')">Temperatuare Conversions</button>
+    </div>
+
+    <div id="calc" class="tabcontent">
+        <div class="calculator">
+
+            <h3>Calculator</h3>
+
+            <form action="" style="width: 206px;">
+                <div class="display">
+                    <input type="text" style="width: 198px; height: 30px; padding: 5px; font-size: larger;"
+                        name="display">
+                </div>
+                <div>
+                    <input type="button" value="AC" onclick=" display.value = '' " class="operator">
+                    <input type="button" value="DEL" onclick=" display.value = display.value.slice(0, -1) "
+                        class="operator">
+                    <input type="button" value="." onclick=" display.value += '.' " class="operator">
+                    <input type="button" value="/" onclick=" display.value += '/' " class="operator">
+                </div>
+                <div>
+                    <input type="button" value="7" onclick=" display.value += '7' ">
+                    <input type="button" value="8" onclick=" display.value += '8' ">
+                    <input type="button" value="9" onclick=" display.value += '9' ">
+                    <input type="button" value="*" onclick=" display.value += '*' " class="operator">
+                </div>
+                <div>
+                    <input type="button" value="4" onclick=" display.value += '4' ">
+                    <input type="button" value="5" onclick=" display.value += '5' ">
+                    <input type="button" value="6" onclick=" display.value += '6' ">
+                    <input type="button" value="-" onclick=" display.value += '-' " class="operator">
+                </div>
+                <div>
+                    <input type="button" value="1" onclick=" display.value += '1' ">
+                    <input type="button" value="2" onclick=" display.value += '2' ">
+                    <input type="button" value="3" onclick=" display.value += '3' ">
+                    <input type="button" value="+" onclick=" display.value += '+' " class="operator">
+                </div>
+                <div>
+                    <input type="button" value="00" onclick="display.value += '00' ">
+                    <input type="button" value="0" onclick="display.value += '0' ">
+                    <input type="button" value="=" onclick="display.value = eval(display.value)" style="width: 92px;">
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+
+    <div id="agecalc" class="tabcontent">
+        <form>
+            <div class="base">
+                <div class="head">
+                    <h3>Age Calculator</h3>
+                    <p>Enter Your Date of Birth</p>
+                </div>
+
+                <div class="block">
+                    <table>
+                        <tr>
+                            <td>
+                                <label for="date">Date</label>
+                            </td>
+                            <td><input type="text" name="date" id="date" placeholder="dd" required="required"
+                                    minlength="1" maxlength="2" />
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <label for="month">Month</label>
+                            </td>
+                            <td>
+                                <input type="text" name="month" id="month" placeholder="mm" required="required"
+                                
+                                    minlength="1" maxlength="2" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="year">Year</label>
+                            </td>
+                            <td>
+                                <input type="text" name="year" id="year" placeholder="yyyy" required="required"
+                                    minlength="4" maxlength="4" />
+                            </td>
+                        </tr>
+                    </table><br>
+                    <input style="padding: 2px; width: 50% ; height: 100%;" type="button" name="submit" value="Submit"
+                        onclick="age()" />
+                    <div id="age"></div>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+
+
+    <div id="conversion" class="tabcontent">
+        <div class="container">
+            <h3 style="margin-bottom: 10px;">Metric Conversion </h3>
+            <label for="input-value" style="font-size: 18px;">Enter value:</label>
+            <input type="number" id="input-value" style="width: 100px;  padding-left: 10px;">
+            <br>
+            <select id="select-from" ">
+                <option value=" m">meters (m)</option>
+                <option value="cm">centimeters (cm)</option>
+                <option value="mm">millimeters (mm)</option>
+                <option value="km">kilometers (km)</option>
+            </select>
+            <label for="select-to">to</label>
+            <select id="select-to">
+                <option value="m">meters (m)</option>
+                <option value="cm">centimeters (cm)</option>
+                <option value="mm">millimeters (mm)</option>
+                <option value="km">kilometers (km)</option>
+            </select><br>
+            <button onclick="convert()" style="  padding: 5px;
+    background-color: white;
+    color: rgb(5, 0, 0);
+    border: 2px solid #ccc;
+    width: 200px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-weight: bold;">Convert</button>
+            <p id="result"></p>
+        </div>
+    </div>
+
+
+    <div id="temp" class="tabcontent">
+        <div class="container">
+            <h3 style="margin-bottom: 10px;">Temperature Conversion</h3>
+            <label for="inputvalue" style="font-size: 18px;">Enter value:</label>
+            <input type="number" id="inputvalue" style="width: 100px;  padding-left: 10px;">
+            <br>
+            <select id="selectfrom" ">
+                <option value="c">celcius (°C)</option>
+                <option value="f">fahrenheit (f)</option>
+                <option value="k">kelvin (K)</option>
+            </select>
+            <label for="selectto">to</label>
+            <select id="selectto">
+                <option value="c">celcius (°C)</option>
+                <option value="f">fahrenheit (f)</option>
+                <option value="k">kelvin (K)</option>
+            </select><br>
+            <button onclick="tempconvert()" style="padding: 5px;
+        background-color: white;
+        color: rgb(5, 0, 0);
+        border: 2px solid #ccc;
+        width: 200px;
+        border-radius: 10px;
+        cursor: pointer;
+        margin-top: 20px;
+        font-weight: bold;">Convert</button>
+            <p id="tempresult"></p>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
